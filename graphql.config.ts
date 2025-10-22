@@ -7,7 +7,7 @@ import type { IGraphQLConfig } from "graphql-config";
  * https://the-guild.dev/graphql/config
  */
 const config: IGraphQLConfig = {
-  schema: "schema.graphql",
+  schema: process.env.GRAPHQL_URL || 'http://localhost:8000/graphql/',
   documents: [
     "./src/**/queries.ts",
     "./src/**/mutations.ts",
