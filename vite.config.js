@@ -171,12 +171,14 @@ export default defineConfig(({ command, mode }) => {
          */
         transformMixedEsModules: true,
       },
+      build: {
+        sourcemap: true,
+     },
       rollupOptions: {
         plugins: [nodePolyfills()],
         maxParallelFileOps: 2,
         cache: false,
         output: {
-          sourcemap,
           manualChunks: id => {
             if (id.includes("node_modules")) {
               return "vendor";
@@ -184,7 +186,6 @@ export default defineConfig(({ command, mode }) => {
           },
         },
       },
-    },
     optimizeDeps: {
       include: ["esm-dep > cjs-dep", "@saleor/macaw-ui"],
     },
