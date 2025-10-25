@@ -159,7 +159,7 @@ export default defineConfig(({ command, mode }) => {
       },
     },
     build: {
-      sourcemap,
+      sourcemap: true,
       minify: false,
       emptyOutDir: true,
       outDir: "../build/dashboard",
@@ -171,9 +171,6 @@ export default defineConfig(({ command, mode }) => {
          */
         transformMixedEsModules: true,
       },
-      build: {
-        sourcemap: true,
-     },
       rollupOptions: {
         plugins: [nodePolyfills()],
         maxParallelFileOps: 2,
@@ -186,6 +183,7 @@ export default defineConfig(({ command, mode }) => {
           },
         },
       },
+    },
     optimizeDeps: {
       include: ["esm-dep > cjs-dep", "@saleor/macaw-ui"],
     },
